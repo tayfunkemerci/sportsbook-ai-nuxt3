@@ -1,75 +1,90 @@
-# Nuxt Minimal Starter
+# Sportsbook AI
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+AI destekli spor bahis simülasyon platformu. Gerçek para kullanmadan spor bahisleri oynamayı simüle eden, yapay zeka destekli bir deneyim platformu.
 
-## Setup
+## Özellikler
 
-Make sure to install dependencies:
+### 🔐 Kimlik Doğrulama Sistemi
+- Kullanıcı kaydı ve girişi (Supabase Auth)
+- Email/şifre ile giriş
+- Magic link ile şifresiz giriş
+- Oturum yönetimi
+
+### 💰 Bakiye Sistemi
+- Her yeni kullanıcıya 1000$ başlangıç bakiyesi
+- Bakiye yükleme özelliği
+- Bahis oynarken bakiye kontrolü
+- Pinia store ile bakiye yönetimi
+
+### 🎲 Bahis Sistemi
+- Aktif bahisleri listeleme
+- Bahis oynama
+- Bahis geçmişi
+- Oranlar ve potansiyel kazanç hesaplama
+
+### 🤖 AI Tahminleri
+- Google Gemini AI entegrasyonu
+- Her bahis için detaylı tahmin analizi
+- Geçmiş veriler ve güncel form analizi
+- Güven oranı ile tahminler
+
+### 🎨 Arayüz Özellikleri
+- Modern ve responsive tasarım
+- Dark/Light mode desteği
+- Kullanıcı profil sayfası
+- Bahis geçmişi tablosu
+- Liderlik tablosu
+
+## Teknik Detaylar
+
+### 🛠 Teknoloji Stack
+- Nuxt.js 3 framework'ü
+- Supabase veritabanı ve kimlik doğrulama
+- Pinia state management
+- Tailwind CSS ile stil yönetimi
+- TypeScript ile tip güvenliği
+
+### 🔒 Güvenlik
+- Row Level Security (RLS) ile veri güvenliği
+- Middleware ile sayfa erişim kontrolü
+- Güvenli bakiye işlemleri
+- Hata yönetimi
+
+### 📊 Veritabanı Yapısı
+- `users` tablosu (id, email, balance)
+- `bets` tablosu (id, user_id, title, amount, odds, status)
+- İlişkisel veri modeli
+- Otomatik timestamp'ler
+
+### ⚡️ Performans Optimizasyonları
+- Bakiye cache'leme
+- Tek sayfa uygulaması (SPA)
+- Lazy loading
+- Optimistik UI güncellemeleri
+
+## Kurulum
 
 ```bash
-# npm
+# Bağımlılıkları yükle
 npm install
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
+# Geliştirme sunucusunu başlat
 npm run dev
 
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
+# Üretime derle
 npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
 ```
 
-Locally preview production build:
+## Ortam Değişkenleri
 
-```bash
-# npm
-npm run preview
+`.env` dosyasında aşağıdaki değişkenleri tanımlayın:
 
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
+```env
+SUPABASE_URL=your-supabase-url
+SUPABASE_KEY=your-supabase-key
+GEMINI_API_KEY=your-gemini-api-key
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Lisans
+
+MIT
